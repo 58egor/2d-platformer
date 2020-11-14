@@ -8,14 +8,23 @@ public class Bullet : MonoBehaviour
     public float speed = 5f;
     public Vector3 direction;
     public float damage=20f;
+    public int Damagelayer = 10;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.name+" "+ collision.gameObject.layer);
-        if(collision.gameObject.layer == 10)
+        if(collision.gameObject.layer == Damagelayer)
         {
-            collision.gameObject.GetComponent<Enemy>().Damage(damage);
+            if (collision.gameObject.layer == 10)
+            {
+                collision.gameObject.GetComponent<Enemy>().Damage(damage);
+            }
+            else
+            {
+                Debug.Log("You Dead");
+                YouLoose.EndGame();
+            }
         }
-        if (collision.gameObject.layer == 10 || collision.gameObject.layer == 9)
+        if (collision.gameObject.layer == Damagelayer || collision.gameObject.layer == 9)
         {
             Debug.Log("Fire");
             Destroy(transform.gameObject);

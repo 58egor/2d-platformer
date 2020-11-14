@@ -68,6 +68,7 @@ public class CharacterController : MonoBehaviour
         Vector3 position = transform.position;
         position.y += 1;
         GameObject newBullet = Instantiate(bullet, GunPoint.transform.position, bullet.transform.rotation);
+        newBullet.GetComponentInChildren<SpriteRenderer>().flipX = sprite.flipX;
         newBullet.GetComponent<Bullet>().direction = newBullet.transform.right * (sprite.flipX ? -1.0f : 1.0f);
     }
     void CheckGround()

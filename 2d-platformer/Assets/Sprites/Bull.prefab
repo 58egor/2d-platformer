@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 11
   m_Sprite: {fileID: 824820470788501548, guid: 7e0a387e020f20940a4e938314587780, type: 3}
   m_Color: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
   m_FlipX: 0
@@ -129,9 +129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3871f3eed25e84895f6e63b9029f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 18
+  speed: 25
   direction: {x: 0, y: 0, z: 0}
   damage: 20
+  Damagelayer: 10
 --- !u!58 &6342687761679715063
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ PrefabInstance:
     - target: {fileID: 6457803233823468939, guid: 49c2cf5e6f6efc8459b4699279ecf0dc,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6457803233823468939, guid: 49c2cf5e6f6efc8459b4699279ecf0dc,
         type: 3}
