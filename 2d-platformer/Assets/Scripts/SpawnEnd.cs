@@ -6,6 +6,8 @@ using System;
 
 public class SpawnEnd : MonoBehaviour
 {
+    public GameObject[] level0;
+    public GameObject[] level0Enter;
     public GameObject[] level1;
     public GameObject[] level1Enter;
     public GameObject[] level2Enter;
@@ -19,7 +21,10 @@ public class SpawnEnd : MonoBehaviour
     {
         Time.timeScale = 1f;
         YouLoose.GetData(winWindow, text);
-        int i = UnityEngine.Random.Range(0, level1.Length);
+        int i = UnityEngine.Random.Range(0, level0.Length);
+        level0[i].SetActive(true);
+        level0Enter[i].SetActive(false);
+        i = UnityEngine.Random.Range(0, level1.Length);
         level1[i].SetActive(true);
         level1Enter[i].SetActive(false);
         i = UnityEngine.Random.Range(0, level2.Length);

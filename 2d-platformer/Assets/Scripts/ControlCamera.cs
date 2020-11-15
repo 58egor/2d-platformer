@@ -9,7 +9,8 @@ public class ControlCamera : MonoBehaviour
     public float speed = 2.0f;
     void Start()
     {
-        
+        //float ortSize = 100 / 200f;
+       // Camera.main.orthographicSize = ortSize;
     }
 
     // Update is called once per frame

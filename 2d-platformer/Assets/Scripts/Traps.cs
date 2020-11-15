@@ -11,7 +11,7 @@ public class Traps : MonoBehaviour
         if (collision.gameObject.layer == 8)
         {
             Debug.Log("You Dead");
-            YouLoose.EndGame();
+            YouLoose.StartDying();
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     public float swordDamage = 25f;
+    bool attackActive=false;
     public float speed = 5f;
     public float jumpForce = 15f;
     private Rigidbody2D rigibody;
@@ -13,6 +14,10 @@ public class CharacterController : MonoBehaviour
     public GameObject bullet;
     public GameObject GunPoint;
     Animator animator;
+    public float range;
+    public Transform attackPoint;
+    public Transform attackPoint2;
+    public LayerMask enemyLayer;
     bool onGround;
     // Start is called before the first frame update
     void Start()
@@ -20,23 +25,45 @@ public class CharacterController : MonoBehaviour
         rigibody = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        YouLoose.GetAnimator(animator);
     }
     public void Jump()
     {
-        if(onGround)
-        rigibody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        if (onGround)
+        {
+            animator.SetTrigger("Jump");
+            rigibody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        }
+    }
+    public void DieAlready()
+    {
+        YouLoose.EndGame();
     }
     public void Attack()
     {
-        animator.SetBool("isAttacking", true);
+        animator.SetTrigger("Attack");
+        attackActive = true;
+ 
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawSphere((sprite.flipX ? attackPoint2.position : attackPoint.position), range);
     }
     public void StopAttack()
     {
-        animator.SetBool("isAttacking", false);
+        attackActive = false;
     }
     // Update is called once per frame
     void Update()
     {
+        if (attackActive)
+        {
+            Collider2D[] hitEnemys = Physics2D.OverlapCircleAll((sprite.flipX ? attackPoint2.position : attackPoint.position), range, enemyLayer);
+            foreach (Collider2D enemy in hitEnemys)
+            {
+                enemy.GetComponent<Enemy>().Damage(swordDamage,1);
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -59,12 +86,11 @@ public class CharacterController : MonoBehaviour
     }
     public void StartFire()
     {
-        animator.SetBool("isFire", true);
+        animator.SetTrigger("Shoot");
         //animator.SetBool("isFire", false);
     }
         public void Fire()
     {
-        animator.SetBool("isFire", false);
         Vector3 position = transform.position;
         position.y += 1;
         GameObject newBullet = Instantiate(bullet, GunPoint.transform.position, bullet.transform.rotation);
@@ -73,26 +99,7 @@ public class CharacterController : MonoBehaviour
     }
     void CheckGround()
     {
-        Debug.DrawLine(transform.position, new Vector2(transform.position.x, transform.position.y - 0.15f));
-        RaycastHit2D[] hit;
-        Ray ray = new Ray(transform.position, -transform.up);
-        hit = Physics2D.RaycastAll(transform.position, -transform.up, 0.15f);
-        int targets=0;
-        for (int i = 0; i < hit.Length; i++)
-        {
-            Debug.Log(hit[i].collider.gameObject.name);
-            if (hit[i].collider.gameObject.layer!=9)
-            {
-                targets++;
-            }
-        }
-        if (targets == hit.Length)
-        {
-            onGround = false;
-        }
-        else
-        {
-            onGround = true;
-        }
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
+        onGround = colliders.Length > 1;
     }
 }

@@ -16,12 +16,12 @@ public class Bullet : MonoBehaviour
         {
             if (collision.gameObject.layer == 10)
             {
-                collision.gameObject.GetComponent<Enemy>().Damage(damage);
+                collision.gameObject.GetComponent<Enemy>().Damage(damage,0);
             }
             else
             {
                 Debug.Log("You Dead");
-                YouLoose.EndGame();
+                YouLoose.StartDying();
             }
         }
         if (collision.gameObject.layer == Damagelayer || collision.gameObject.layer == 9)
