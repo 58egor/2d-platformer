@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2378274793772515809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2378274793772515811}
+  - component: {fileID: 2378274793772515810}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2378274793772515811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378274793772515809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1312101, y: -0.72774696, z: -477.3324}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2378274793772515810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378274793772515809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cdee0614796764e8923d7ace645947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: MageShoot
+    clip: {fileID: 8300000, guid: a4cc3aa4970ba4469b76c20bb163371f, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: KingShoot
+    clip: {fileID: 8300000, guid: 5e94b610ac994463bb21f494d1966f09, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: KingJump
+    clip: {fileID: 8300000, guid: 016b700bcb3554b1999c391b9661d285, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: ShootDamage
+    clip: {fileID: 8300000, guid: e2a915bbc58734650bd17de4e87a001c, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: HitDamage
+    clip: {fileID: 8300000, guid: 58ccec2859d7544f5880b3202cc15dc1, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: MageDies
+    clip: {fileID: 8300000, guid: 066d4f15549a6480eaea224b69a1c85f, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: KnightDies
+    clip: {fileID: 8300000, guid: 9ab7ac9f6e729457d8a8dfa89151ee30, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: KnightBlock
+    clip: {fileID: 8300000, guid: 3b9ec8e362eec47378dc741fd78a9555, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: KingDies
+    clip: {fileID: 8300000, guid: adcbbbae313cb40978e30faf82938987, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Win
+    clip: {fileID: 8300000, guid: 524fb3698f9864ea4a953e57aefc11ad, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Background
+    clip: {fileID: 8300000, guid: 9653c167f1ee3f84da71107948227942, type: 3}
+    volume: 0.23
+    pitch: 1
+    loop: 1
+    audioSource: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: 2876e7fa4419a4a7096b8bb38641daa3, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: HitKnight
+    clip: {fileID: 8300000, guid: 34b722ffc09ef4831a89b6502cd42f7e, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    audioSource: {fileID: 0}
